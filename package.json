@@ -19,6 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://agitated-nobel-d0ad64.netlify.app",
   "eslintConfig": {
     "extends": [
       "react-app",
