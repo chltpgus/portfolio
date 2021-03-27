@@ -1,0 +1,494 @@
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 100;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype');} 
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 300;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype');} 
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 400;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype');} 
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 500;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf) format('opentype');} 
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 700;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf) format('opentype');} 
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 900;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.otf) format('opentype');} body, h1, h2, h3, h4, h5, h6, input, textarea, select { font-family: 'Noto Sans KR', sans-serif; }
+ 
+$color-gray: #666;
+$color-black: #000;
+$stripe-height: 7px;
+$btn-color: $color-gray;
+$btn-background: #fff;
+$btn-color-hover: #fff;
+$btn-background-hover: $color-gray;
+$border-color: $color-gray;
+$border-color-hover: $color-black;
+
+h1, h2, h3, h4, h5, h6{
+    margin: 0px;
+   }
+
+li{
+  list-style:none;
+}
+
+body {
+  padding-top: 75px;
+  font-family : 'Noto Sans KR', sans-serif;
+  font-weight: 300;
+
+}
+header {
+  font-weight: 500;
+  z-index: 1;
+  position: fixed; 
+  background-color: rgb(252, 252, 252);
+  top: 0;
+  left: 0;
+  right: 0;
+
+}
+@mixin reset-button {
+  overflow : visible;
+  margin : 0;
+  padding : 0;
+  border : 0;
+  background : transparent;
+  font : inherit;
+  line-height : normal;
+  cursor : pointer;
+  -moz-user-select : text;
+  
+  &:-moz-focus-inner {
+      padding : 0;
+      border : 0;
+  }
+}
+
+@keyframes stripe-slide {
+  0% { background-position: 0% 0; }
+  100% { background-position: 100% 0; }
+}
+
+.btn {
+  @include reset-button;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-top: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 20px 20px;
+  background-color: $btn-background;
+  color: $btn-color;
+  border: 2px solid $border-color;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  transition: all .5s ease;
+  
+  
+  &--stripe {
+      overflow: hidden;
+      position:relative;
+      
+      &:after {
+          content: '';
+          display: block;
+          height: $stripe-height;
+          width: 100%;
+          background-image: repeating-linear-gradient(
+              45deg,
+              $border-color,
+              $border-color 1px,
+              transparent 2px,
+              transparent 5px
+          );
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+          border-top: 1px solid $border-color;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          background-size: $stripe-height $stripe-height;
+      }
+
+      &:hover {
+          background-color: $btn-background-hover;
+          color: $btn-color-hover;
+          border-color: $border-color-hover;
+
+          &:after {
+              background-image: repeating-linear-gradient(
+                  45deg,
+                  $btn-color-hover,
+                  $btn-color-hover 1px,
+                  transparent 2px,
+                  transparent 5px
+              );
+              border-top: 1px solid $border-color-hover;
+              animation: stripe-slide 12s infinite linear forwards;
+          }
+      }
+  }
+  
+  &--large {
+      width: 50%;
+  }
+  
+  &--radius {
+      border-radius: 20px;
+  }
+}
+.headerNav{
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 4%;
+  padding-right: 4%;
+  align-items: center;
+  height: 55px;
+  border-bottom: solid 0.75px rgb(194, 194, 194);
+}
+
+#headerIcon{
+  font-size: 30px;
+  color: #006eff;
+}
+
+.headerLink{
+  padding: 15px 5px;
+  text-decoration: none;
+  color: #000;
+}
+
+.firstSection{
+  padding: 0px 20px;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6rem;
+  margin-bottom: 10rem;
+}
+
+.intro_first{
+  font-size: 25px;
+}
+
+.divider{
+  background: #006eff;
+    height: 2px;
+    width: 200px;
+    margin-bottom: 1.25rem;
+}
+
+.intro_Greetings{
+  line-height: 35px;
+  font-size: 17px;
+}
+
+.skils{
+  margin-top: 80px;
+}
+
+.skilTitle{
+  color: #006eff;
+  font-size: 30px;
+}
+.skilsname{
+  display: flex;
+  justify-content: center;
+}
+.skilsList{
+  margin-top: 30px;
+  display: block;
+  text-align: center;
+  padding: 0px 20px;
+}
+.fa-python, .fa-html5, .fa-js-square, .fa-css3-alt, .fa-react, .fa-copyright, .fa-node, .fa-database, .fa-android{
+  font-size: 70px;
+}
+
+.fa-html5{color: #dd4b25;}
+.fa-python{color: #396f9e;}
+.fa-js-square{color: #f7df1e;}
+.fa-react{color:  #5ed3f3;}
+.fa-node{color: #57a248;}
+.fa-css3-alt{ color: #146eb1;}
+.fa-database{color: #025f87;}
+.fa-android{color: #30d780;}
+
+.projectDescriptionSection{
+  padding: 0px 20px;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6rem;
+  margin-bottom: auto;
+}
+.description_first{
+  border-left: 4px solid #006eff;
+  padding-left: 15px;
+  font-size: 23px;
+}
+
+.description_li{
+  display: flex;
+  justify-content: center;
+}
+
+
+.description_link1, .description_link2, .description_link3, .description_link4{
+  margin-top: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 5px 5px;
+  text-decoration: none;
+  border: solid 1.5px rgb(65, 65, 65);
+  border-radius: 10px;
+  color: #000;
+  font-weight: 500;
+}
+
+.description_link1:hover, .description_link2:hover, .description_link3:hover, .description_link4:hover{
+  color: #ffffff;
+  border-radius: 10px;
+  background: #006eff;
+  border: solid 1.5px rgb(255, 255, 255);
+  text-decoration: none;
+  transition: 1.25s ease all;
+}
+
+.description_title{
+  margin-top: 25px;
+  color: #000000;
+}
+.description_title_p{
+  margin: 0;
+  color: rgb(145, 145, 145);
+}
+.description_text_p, .description_sktil_p{
+  margin: 0;
+  padding: 10px 10px;
+}
+.description_contribution_p{
+  margin: 0;
+  font-size: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px ;
+}
+.description_contribution_p2{
+  padding:0px 35px;
+  font-size: 17px;
+  color: rgb(128, 128, 128);
+}
+.description_a{
+  color: #006eff;
+  text-decoration: none;
+  font-size: 17px;
+}
+.description_text{
+  font-size: 18px;
+  background-color: #f0f0f0;
+  margin-top: 30px ;
+  margin-bottom: 20px ;
+}
+.description_contribution_li{
+  font-size: 18px;
+  list-style:circle;
+}
+.description_contribution_li::marker{
+  color: #006eff;
+}
+.backproject_div{
+  padding-top: 50px;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+}
+
+.backproject{
+  display: block;
+ 
+}
+.backproject_link_p{
+  margin: 0px;
+}
+
+.backproject_link{
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  transition: 1s;
+}
+
+.backproject_link:hover{
+  color: #006eff;
+  font-size: 23px;
+  transition: 1.25s;
+}
+
+.certificateSection{
+  padding: 0px 20px;
+  padding-bottom: 100px;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  margin-bottom: auto;
+}
+
+.certificate_title{
+ display: flex;
+ font-size: 20px;
+}
+.certificate_title_h1{
+  color: #006eff;
+}
+.certificate{
+  padding-top: 20px;
+  line-height: 35px;
+}
+
+footer{
+  height: auto;
+  background-color: rgb(0, 0, 0);
+}
+
+.footerDiv{
+  display: block;
+  text-align: center;
+  padding: 50px 20px;
+  padding-top: 30px;
+  padding-bottom: auto;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  color: rgb(255, 255, 255);
+}
+.footer_a{
+  color: rgb(255, 255, 255);
+  line-height : 10px;
+  text-decoration: none;
+}
+.footer_p{
+  line-height : 10px;
+}
+
+@media all and (max-width: 750px){
+  .firstSection{
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+  }
+  .btn{
+    padding: 18px 10px;
+  }
+  .fa-python, .fa-html5, .fa-js-square, .fa-css3-alt, .fa-react, .fa-copyright, .fa-node, .fa-database, .fa-android{
+    font-size: 50px;
+  }
+}
+
+@media all and (max-width: 600px){
+  .firstSection{
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+  }
+  .btn{
+    padding: 13px 8px;
+    font-size: 15px;
+  }
+  .intro_first, .skilTitle, .description_first,  .certificate_title{
+    font-size: 20px;
+  }
+  .description_a, .description_text_p, .description_sktil_p, .description_contribution_li{
+    font-size: 16px;
+  }
+  .description_contribution_p2{
+    font-size: 15px;
+  }
+
+  .fa-python, .fa-html5, .fa-js-square, .fa-css3-alt, .fa-react, .fa-copyright, .fa-node, .fa-database, .fa-android{
+    font-size: 50px;
+  }
+}
+
+@media all and (max-width: 540px){
+  .btn{
+    padding: 13px 8px;
+    font-size: 13px;
+  }
+  .fa-python, .fa-html5, .fa-js-square, .fa-css3-alt, .fa-react, .fa-copyright, .fa-node, .fa-database, .fa-android{
+    font-size: 40px;
+  }
+  .skilsList{
+    font-size: 14px;
+  }
+  .intro_Greetings{
+    font-size: 16px;
+  }
+}
+
+@media all and (max-width: 485px){
+  .btn{
+    padding: 13px 8px;
+    font-size: 10px;
+  }
+  .fa-python, .fa-html5, .fa-js-square, .fa-css3-alt, .fa-react, .fa-copyright, .fa-node, .fa-database, .fa-android{
+    font-size: 40px;
+  }
+  .skilsList{
+    font-size: 12px;
+    padding: 15px;
+  }
+  .intro_Greetings{
+    font-size: 16px;
+  }
+}
+
+@media all and (max-width: 450px){
+  .btn{
+    padding: 13px 8px;
+    font-size: 10px;
+  }
+  .fa-python, .fa-html5, .fa-js-square, .fa-css3-alt, .fa-react, .fa-copyright, .fa-node, .fa-database, .fa-android{
+    font-size: 40px;
+  }
+  .skilsList{
+    font-size: 12px;
+    margin: 0px;
+    padding: 15px;
+  }
+  .intro_Greetings{
+    font-size: 16px;
+  }
+  .intro_first, .skilTitle, .description_first,  .certificate_title, .certificate{
+    font-size: 15px;
+  }
+  .description_a, .description_text_p, .description_sktil_p, .description_contribution_li, .footerDiv{
+    font-size: 13px;
+  }
+  .intro_Greetings{
+    line-height: 25px;
+  }
+  .description_contribution_p2{
+    font-size: 12px;
+  }
+  .backproject_link, .description_contribution_p{
+    font-size: 18px;
+  }
+  .backproject_link:hover{
+    font-size: 20px;
+  }
+  .description_title_h2{
+    font-size: 20px;
+  }
+  
+}
+
+@media all and (max-width: 410px){
+  .skilsList{
+    font-size: 9px;
+    padding: 10px;
+  }
+  .fa-python, .fa-html5, .fa-js-square, .fa-css3-alt, .fa-react, .fa-copyright, .fa-node, .fa-database, .fa-android{
+    font-size: 35px;
+  }
+  .btn{
+    padding: 10px 5px;
+    margin: 15px 2px;
+    border-radius: 10px;
+    font-size: 10px;
+  }
+}
