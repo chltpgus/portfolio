@@ -9,7 +9,7 @@ function Header() {
         <header className="nav">
             <nav className="headerNav">
                 <i id="headerIcon" className="far fa-handshake"></i>
-                <Link className="headerLink" to="">이력서 보기</Link>
+                <a className="headerLink" href="https://drive.google.com/file/d/1qOAdrv_3WMjGzLRYHevH-4QuLBF_hftB/view">이력서 보기</a>
             </nav>
         </header>
     );
