@@ -458,13 +458,13 @@ footer{
     font-size: 15px;
   }
   .description_a, .description_text_p, .description_sktil_p, .description_contribution_li, .footerDiv{
-    font-size: 13px;
+    font-size: 14px;
   }
   .intro_Greetings{
     line-height: 25px;
   }
   .description_contribution_p2{
-    font-size: 12px;
+    font-size: 14px;
   }
   .backproject_link, .description_contribution_p{
     font-size: 18px;
@@ -478,7 +478,7 @@ footer{
   
 }
 
-@media all and (max-width: 410px){
+@media all and (max-width: 426px){
   .skilsList{
     font-size: 9px;
     padding: 10px;
