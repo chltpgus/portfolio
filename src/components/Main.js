@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 import Noticeboard from './Noticeboard';
 import Maple from './Maple';
 import Smartwindow from './Smartwindow';
@@ -28,7 +28,7 @@ function Main() {
         
     }
     return (
-        <BrowserRouter>
+        <HashRouter>
         <div>
             <section className="firstSection">
                 <div className="intro_first">
@@ -90,7 +90,7 @@ function Main() {
                 </section>
             
         </div>
-          </BrowserRouter>
+          </HashRouter>
     );
 
 }
