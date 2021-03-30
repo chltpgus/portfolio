@@ -21,8 +21,8 @@ function Noticeboard() {
             <div className="description_contribution">
                 <p className="description_contribution_p">저는 이런 일에 기여했습니다.</p>
                 <li className="description_contribution_li">회원가입 및 로그인 시스템 구축 (기여도 100%)</li>
-                <p className="description_contribution_p2">fetch를 사용해서 get요청, post 전송을 수행해 로그인, 회원가입이 가능하게 구축</p>
-                <p className="description_contribution_p2">가입 정보를 넣고 회원가입 버튼을 누르면 중복없이 가입할 수 있는 시스템 구축</p>
+                <p className="description_contribution_p2">fetch를 사용해서 get 요청, post 전송을 수행해 로그인, 회원가입이 가능하게 구축</p>
+                <p className="description_contribution_p2">가입 정보를 넣고 회원가입 버튼을 누르면 중복 없이 가입할 수 있는 시스템 구축</p>
                 <p className="description_contribution_p2">sessionStorage를 사용해서 로그인이 유지 될 수 있도록 구축</p>
 
                 <li className="description_contribution_li">글 작성, 글 수정, 글 삭제 기능 구축 (기여도 100%)</li>

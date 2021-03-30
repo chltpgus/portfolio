@@ -11,7 +11,7 @@ function Dietapp() {
                 <a className="description_a" href="https://github.com/chltpgus/Diet-management-application">Github 웹사이트로 이동</a>
             </div>
             <div className="description_text">
-                <p className="description_text_p">다이어트 APP는 다이어터에게 도움을 주는 어플리케이션입니다. 냉장고에 있는 재료를 APP에 체크해서 다이어트 음식, 레시피를 추천받을 수 있습니다. </p>
+                <p className="description_text_p">다이어트 APP는 다이어트 서포트 APP입니다. 냉장고에 있는 재료를 APP에 체크해서 다이어트 음식, 레시피를 추천받을 수 있고 칼로리를 설정해서 칼로리별 운동량을 보여줍니다.</p>
             </div>
             <div className="description_skils">
                 <h4 className="description_sktil_p">사용 기술 - AndriodStudio, Xml, PHP, 카페24 Database</h4>
